@@ -14,7 +14,6 @@ export const DefaultInput = styled.input`
   background-color: #f5f5f5;
   color: #555;
 
-  font-weight: 500;
   font-size: 0.875rem;
 
   transition: 0.1s;
@@ -37,7 +36,6 @@ export const SubmitInput = styled.input`
   background-color: #60a5fa;
   color: white;
 
-  font-weight: 500;
   font-size: 0.875rem;
 
   transition: 0.1s;
@@ -55,7 +53,8 @@ export const SubmitInput = styled.input`
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2px;
+  font-size: 0.875rem;
 
   label {
     color: #e57373;

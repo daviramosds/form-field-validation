@@ -5,10 +5,11 @@ import { Input } from "./components/input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { useState } from "react";
 
 type FormData = {
-  email: String;
-  password: String;
+  email: string;
+  password: string;
 };
 
 const schema = yup
@@ -19,6 +20,11 @@ const schema = yup
   .required();
 
 function App() {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
   const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -29,6 +35,24 @@ function App() {
     justify-content: center;
   `;
 
+  const DataContainer = styled.div`
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    p {
+      color: #555;
+      font-size: 0.875rem;
+    }
+
+    label {
+      color: #60a5fa;
+      font-weight: 500;
+      margin-right: 5px;
+    }
+  `;
+
   const {
     register,
     handleSubmit,
@@ -37,6 +61,10 @@ function App() {
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    setData({
+      email: data.email,
+      password: data.password,
+    });
   });
 
   return (
@@ -57,6 +85,20 @@ function App() {
           />
           <Input type="submit" placeholder="submit" />
         </Card>
+
+        {data.email && (
+          <DataContainer>
+            <p>
+              <label>email:</label>
+              {data.email}
+            </p>
+
+            <p>
+              <label>password:</label>
+              {data.password}
+            </p>
+          </DataContainer>
+        )}
       </form>
     </Container>
   );
