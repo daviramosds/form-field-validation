@@ -36,8 +36,8 @@ function App() {
   } = useForm<FormData>({ resolver: yupResolver(schema) });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
-  })
+    console.log(data);
+  });
 
   return (
     <Container className="App">
@@ -53,10 +53,9 @@ function App() {
             type="password"
             placeholder="password"
             register={register}
-            // error={errors.password?.message}
+            error={errors.password?.message}
           />
           <Input type="submit" placeholder="submit" />
-          <input type="submit" value="a" />
         </Card>
       </form>
     </Container>

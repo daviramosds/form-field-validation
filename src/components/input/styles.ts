@@ -51,3 +51,20 @@ export const SubmitInput = styled.input`
     color: #60a5fa;
   }
 `;
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    color: #e57373;
+  }
+
+  .error {
+    border-bottom: 2px solid #e57373;
+    &:focus {
+      border-bottom: 2px solid #60a5fa;
+    }
+  }
+`;

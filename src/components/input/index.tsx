@@ -1,4 +1,4 @@
-import { DefaultInput, SubmitInput } from "./styles";
+import { DefaultInput, SubmitInput, InputContainer } from "./styles";
 
 interface InputPropsInterface {
   type: string;
@@ -18,13 +18,14 @@ export function Input({
   }
 
   return (
-    <div>
+    <InputContainer>
       <DefaultInput
         {...register(placeholder)}
         placeholder={placeholder}
         type={type}
+        className={error ? 'error' : ''}
       />
       <label>{error}</label>
-    </div>
+    </InputContainer>
   );
 }
